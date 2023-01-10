@@ -1,0 +1,42 @@
+ERROR:root:Failed request for Ftx. Client-side error: Status 403.
+ERROR:asyncio:Task exception was never retrieved
+future: <Task finished name='Task-1' coro=<main() done, defined at /Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/open_crypto/main.py:78> exception=SystemExit()>
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/open_crypto/main.py", line 127, in main
+    loop.run_until_complete(await scheduler.start())
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/nest_asyncio.py", line 80, in run_until_complete
+    f = asyncio.ensure_future(future, loop=self)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/tasks.py", line 649, in ensure_future
+    return _ensure_future(coro_or_future, loop=loop)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/tasks.py", line 664, in _ensure_future
+    raise TypeError('An asyncio.Future, a coroutine or an awaitable '
+TypeError: An asyncio.Future, a coroutine or an awaitable is required
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/open_crypto/runner.py", line 216, in run
+    main.run(configuration_file, working_directory)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/open_crypto/main.py", line 176, in run
+    asyncio.run(main(database_handler, program_config))
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/nest_asyncio.py", line 35, in run
+    return loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/nest_asyncio.py", line 84, in run_until_complete
+    self._run_once()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/nest_asyncio.py", line 120, in _run_once
+    handle._run()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/events.py", line 80, in _run
+    self._context.run(self._callback, *self._args)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/tasks.py", line 350, in __wakeup
+    self.__step()
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/nest_asyncio.py", line 196, in step
+    step_orig(task, exc)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/asyncio/tasks.py", line 267, in __step
+    result = coro.send(None)
+             ^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/site-packages/open_crypto/main.py", line 129, in main
+    raise SystemExit from exc
+SystemExit
